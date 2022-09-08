@@ -1,4 +1,4 @@
-# TP1 - Linux Ubuntu
+# 👨‍💻 TP1 - Linux Ubuntu
 
 Installation d’Ubuntu Server et prise en main du shell - CPE Lyon - 4ETI, 3IRC & 3ICS - Année 2022/2023 Administration Système
 
@@ -19,6 +19,9 @@ Pour quitter un manuel, on presse `q`.
 On sait que le manuel ouvre la première commande qu'il trouve, donc avec l'argument `-K` pour spécifier la section. 
 
 Après avoir entré la commande `man -K 6`, est affiché le manuel du gestionnaire de package d'Ubuntu ('dpkg').  
+
+<img src="https://media.discordapp.net/attachments/1017478318934724638/1017478953184804954/Screenshot_from_2022-09-08_18-57-51.png?width=900&height=800">
+
 
 ### Navigation
 
@@ -50,6 +53,8 @@ Voici, les commandes afin de créer l’arborescence suivante :
 
 D'abord, on créer le 'dossier1' avec `mkdir dossier1`. Puis, on ajoute dans le fichier 'fichier1.txt' en entrant la commande `touch fichier1`. Ensuite, on fait des commandes similaires pour créer la suite de l’arborescence. 
 
+<img src="https://media.discordapp.net/attachments/1017478318934724638/1017480130693693460/unknown.png">
+
 Pour supprimer le 'fichier1' dans 'dossier1' avec la commande `rm dossier/fichier1`. Or, avec la commande `rm`, on ne peut pas supprimer de dossier.
 
 Grace à la commande `man rm`, on découvre qu'il y a des arguments `-f` pour forcer  l'opération, `rm dir` pour supprimer un dossier vide et `rm -r` pour ajouter la récursivité dans l'opération. 
@@ -68,6 +73,8 @@ Avec la commande `which`, on peut alors situer le programme `ls`. Donc avec `whi
 
 `ll` ou `ls - alF` (d'après `alias  ll`) permet de découvrir le détail des différents fichiers et dossiers avec date de créations, permissions et autres. 
 
+<img src="https://media.discordapp.net/attachments/1017478318934724638/1017481290351661177/unknown.png">
+
 Pour afficher les fichiers et dossiers du dossier '/bin', on fait `ls /usr/bin`.
 
 La commande  `ls ..` , permet d'afficher le contenu du dossier précédent (chemin relatif). 
@@ -82,7 +89,7 @@ La commande `sleep 10 | echo 'toto'` permet d'afficher dans le terminal `toto` e
 
 D'après le manuel, grace à la commande `file`, on apprend quel est le type du fichier (par exemple pour le fichier "plop" avec `file plop`, qui retourne `plop: ASCII text` ou avec le fichier "swap.img" qui retourne `swap.img: Linux swap file...`).
 
- Après avoir crée le fichier original avec `touch original` et fait le 'lien_phy' avec `ln original lien_phy`. Si on modifie le fichier 'original' ou 'lien_phy', les fichiers seront tous deux modifiés. 
+ Après avoir créer le fichier original avec `touch original` et fait le 'lien_phy' avec `ln original lien_phy`. Si on modifie le fichier 'original' ou 'lien_phy', les fichiers seront tous deux modifiés. 
 Mais si on supprime le fichier 'original', le fichier 'lien_phy' sera toujours présent. 
 
 Maintenant avec un lien symbolique entre 'lien_phy' et 'lien_sym', créer à partir de la commande `ln -s lien_phy lien_sym`. Si on modifie le fichier 'lien_phy' ou 'lien_sym', les fichiers seront tous deux modifiés. 
@@ -108,9 +115,36 @@ On peut chercher l'alias 'lien_sym' avec la commande `grep lien_sym`.
 
 Après avoir installé plocate avec la commande `sudo apt install plocate`. On peut faire : `locate history.log` pour voir l'emplacement du fichier 'history.log'. 
 
-Locate ne peut pas localiser des dossiers dans le dossier courant. 
+<img src="https://media.discordapp.net/attachments/1017478318934724638/1017480756030873730/unknown.png">
 
+Locate ne peut pas localiser des dossiers du dossier courant. 
 
+## Exercice 3
 
+On copie le fichier le contenu du fichier syslog dans log.txt `cp /var/log/syslog log.txt`. 
 
+Puis, pour remplacer le mot 'kernel' par 'noyau' : on ouvre le fichier log avec la commande `nano log.txt`.  Alors avec les touches `CTRL+/`, on recherche d'abord 'kernel' pour le remplacer par 'noyau', on fait ensuite `A` pour effectuer cette actions sur toutes les instances. 
 
+Pour mettre les 10 premièrer lignes du log.txt à la fin faire `CTRL+K` pour couper puis coller avec `CTRL+U` à la fin du fichier. 
+
+On fait `ALT+U` pour annuler une actions et `ALT+E` pour refaire une action. 
+
+Enfin, on fait `CTRL+S` pour engistrer puis pour quitter `CTRL+X`.
+
+## Excercice 4
+
+Après fait une copie du fichier `.bashrc`, on peut le modifier pour changer l'apparence du terminal.
+
+On ouvre le fichier avec `nano ~/.bashrc`. 
+
+Et on ajoute les modifications suivantes dans le fichier : 
+
+```bash
+export PS1="\[\033[38;5;1m\][\[$(tput sgr0)\]\[\033[38;5;92m\]\t\[$(tput sgr0)\]\[\033[38;5;1m\]]\[$(tput sgr0)\]-\[$(tput sgr0)\]\[\033[38;5;10m\]\u@\h\[$(tput sgr0)\]:\[$(tput sgr0)\]\[\033[38;5;51m\]\w\[$(tput sgr0)\]"
+```
+
+On enrgistre le fichier `.bashrc` avec `CTRL+S` pour engistrer puis pour quitter `CTRL+X`.
+
+Et voici le resultat : 
+
+<img src="https://media.discordapp.net/attachments/1017478318934724638/1017478499575025684/Screenshot_from_2022-09-08_18-47-07.png">

@@ -82,7 +82,7 @@ La commande `sleep 10 | echo 'toto'` permet d'afficher dans le terminal `toto` e
 
 D'après le manuel, grace à la commande `file`, on apprend quel est le type du fichier (par exemple pour le fichier "plop" avec `file plop`, qui retourne `plop: ASCII text` ou avec le fichier "swap.img" qui retourne `swap.img: Linux swap file...`).
 
- Après avoir créer le fichier original avec `touch original` et fait le 'lien_phy' avec `ln original lien_phy`. Si on modifie le fichier 'original' ou 'lien_phy', les fichiers seront tous deux modifiés. 
+ Après avoir crée le fichier original avec `touch original` et fait le 'lien_phy' avec `ln original lien_phy`. Si on modifie le fichier 'original' ou 'lien_phy', les fichiers seront tous deux modifiés. 
 Mais si on supprime le fichier 'original', le fichier 'lien_phy' sera toujours présent. 
 
 Maintenant avec un lien symbolique entre 'lien_phy' et 'lien_sym', créer à partir de la commande `ln -s lien_phy lien_sym`. Si on modifie le fichier 'lien_phy' ou 'lien_sym', les fichiers seront tous deux modifiés. 
@@ -90,15 +90,15 @@ Si on supprime le fichier 'lien_phy', alors le fichier 'lien_sym' sera supprimé
 
 Avec la commande `cat /var/log/syslog`, on peut ouvrir le fichier 'syslog' qui contient les logs du système. Pour stoper le défilement, on fait le raccourci clavier suivant `CTRL+Q` et `CTRL+S`. 
 
-Pour voir les 5 première lignes du fichier log, il faut écrire la commande `head -n 5 /var/log/syslog`. 
+Pour voir les 5 premières lignes du fichier log, il faut écrire la commande `head -n 5 /var/log/syslog`. 
 
-Pour voir les 10 dernière lignes du fichier log, il faut exécuter la commande `tail -n 10 /var/log/syslog`. 
+Pour voir les 10 dernières lignes du fichier log, il faut exécuter la commande `tail -n 10 /var/log/syslog`. 
 
 La commande `dmesg | less`  et divisée en deux `dmesg` permet de visualiser les données du kernel ring buffer et `less` d'afficher les données sur qu'une partie de l'écran.
 
 Le fichier 'passwd' (`cat /etc/passwd`), stocke les informations relatives aux comptes d'utilisateurs. Le fichier enregistre du texte brut, qui fournira des informations utiles pour chaque comptes d'utilisateurs. 
 
-Pour afficher chaques utilisateurs, on utilise la commande `who`. 
+Pour afficher chaque utilisateur, on utilise la commande `who`. 
 
 Pour chercher tous les fichiers 'passwd', on entre : `find / -iname 'passwd'`. 
 
@@ -108,7 +108,7 @@ On peut chercher l'alias 'lien_sym' avec la commande `grep lien_sym`.
 
 Après avoir installé plocate avec la commande `sudo apt install plocate`. On peut faire : `locate history.log` pour voir l'emplacement du fichier 'history.log'. 
 
-Locate ne peut pas localiser des dossier dans le dossier personnel. 
+Locate ne peut pas localiser des dossiers dans le dossier courant. 
 
 
 

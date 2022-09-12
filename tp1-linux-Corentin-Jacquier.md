@@ -111,7 +111,7 @@ Pour chercher tous les fichiers 'passwd', on entre : `find / -iname 'passwd'`.
 
 On modifie la commande précédente pour que la liste des fichiers trouvés soit enregistrée dans le fichier `~/list_passwd_files.txt` et que les erreurs soient redirigées vers le fichier spécial `/dev/null`. Alors, on a la commande suivante : `find / -iname 'passwd' > ~/list_passwd_files.txt 2>/dev/null`.
 
-On peut chercher l'alias 'lien_sym' avec la commande `grep lien_sym`. 
+On peut chercher l'alias 'lien_sym' avec la commande `grep -r 'alias lien_sym'` ou `grep -r 'alias ll'` pour `ll`. 
 
 Après avoir installé plocate avec la commande `sudo apt install plocate`. On peut faire : `locate history.log` pour voir l'emplacement du fichier 'history.log'. 
 
